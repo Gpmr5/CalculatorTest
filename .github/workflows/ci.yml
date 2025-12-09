@@ -15,24 +15,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Кодыг checkout хийх
       - uses: actions/checkout@v4
 
-      # JDK 17 тохируулах
       - name: JDK 17 Тохируулах
         uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
 
-      # Checkstyle шалгах
       - name: Checkstyle Шалгах
         run: mvn checkstyle:check
+        working-directory: ./src
 
-      # JUnit тест болон JaCoCo coverage шалгах
       - name: JUnit Тест ба JaCoCo Coverage Шалгах
         run: mvn test jacoco:check
+        working-directory: ./src
 
-      # JaCoCo тайлан үүсгэх
       - name: JaCoCo Тайлан Үүсгэх
         run: mvn jacoco:report
+        working-directory: ./src
