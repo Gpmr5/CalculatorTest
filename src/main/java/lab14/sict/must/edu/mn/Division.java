@@ -1,10 +1,10 @@
-package lab14.sict.must.edu.mn;
+package labxx.sict.must.edu.mn;
 
 public class Division {
 
     public double divide(double a, double b) {
         if (b == 0) {
-            throw new IllegalArgumentException("Division by zero!");
+            throw new IllegalArgumentException("Тэгээр хуваах боломжгүй");
         }
         return a / b;
     }
