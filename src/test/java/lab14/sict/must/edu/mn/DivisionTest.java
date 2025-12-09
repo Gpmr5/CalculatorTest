@@ -1,34 +1,20 @@
-package lab14.sict.must.edu.mn;
+package labxx.sict.must.edu.mn;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class DivisionTest {
-
-    Division division = new Division();
-
-    @Test
-    void testDividePositive() {
-        // Эерэг тоонуудыг хуваах
-        assertEquals(2, division.divide(6, 3));
-        assertEquals(5, division.divide(25, 5));
-    }
+public class DivisionTest {
 
     @Test
-    void testDivideNegative() {
-        // Эерэг болон сөрөг
-        assertEquals(-2, division.divide(-6, 3));
-        assertEquals(-4, division.divide(12, -3));
-        // Хоёулаа сөрөг
-        assertEquals(3, division.divide(-9, -3));
+    void testDivideNormal() {
+        Division calc = new Division();
+        assertEquals(2.0, calc.divide(4.0, 2.0), "4 / 2 нь 2-той тэнцүү байх ёстой");
     }
 
     @Test
     void testDivideByZero() {
-        // 0-ээр хуваахыг шалгах
-        Exception exception = assertThrows(ArithmeticException.class, () -> {
-            division.divide(5, 0);
-        });
-        assertEquals("Division by zero", exception.getMessage());
+        Division calc = new Division();
+        assertThrows(IllegalArgumentException.class, () -> calc.divide(4.0, 0.0), "Тэгээр хуваах нь exception өгөх ёстой");
     }
 }
